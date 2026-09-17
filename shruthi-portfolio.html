@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shruthi S V | Business Analyst | Requirements & Process Automation</title>
+<meta name="description" content="Business Analyst with 3+ years of experience across Healthcare, Retail and Supply Chain, specializing in requirements analysis, process automation, stakeholder management, UAT and SQL-based data analysis.">
+<meta property="og:title" content="Shruthi S V | Business Analyst | Requirements & Process Automation">
+<meta property="og:description" content="Business Analyst with 3+ years of experience across Healthcare, Retail and Supply Chain, specializing in requirements analysis, process automation, stakeholder management, UAT and SQL-based data analysis.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#F7F5F0; --bg-alt:#EFEBE2; --surface:#FFFFFF;
+  --text:#1B2333; --text-soft:#4A5468;
+  --accent:#1E7268; --accent-soft:#E7F1EF;
+  --accent2:#B8863D; --accent2-soft:#F4EBDA;
+  --border:#D8D3C6;
+  --bg-invert:#10192E; --text-invert:#F2EFE7; --text-invert-soft:#B7BECF;
+  --radius:3px;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1220; --bg-alt:#101A2E; --surface:#131E33;
+    --text:#EDEAE1; --text-soft:#9BA5BC;
+    --accent:#4FBDAF; --accent-soft:#15302B;
+    --accent2:#D9A855; --accent2-soft:#2A2214;
+    --border:#25324B;
+  }
+}
+[data-theme="dark"]{
+  --bg:#0B1220; --bg-alt:#101A2E; --surface:#131E33;
+  --text:#EDEAE1; --text-soft:#9BA5BC;
+  --accent:#4FBDAF; --accent-soft:#15302B;
+  --accent2:#D9A855; --accent2-soft:#2A2214;
+  --border:#25324B;
+}
+
+/* ============ BASE ============ */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;} }
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;color:var(--text);}
+p{margin:0 0 1em;max-width:68ch;color:var(--text-soft);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+img,svg{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--accent2);outline-offset:2px;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.mono{font-family:var(--mono);letter-spacing:.02em;}
+.section{padding:96px 0;border-bottom:1px solid var(--border);}
+.section-head{margin-bottom:48px;max-width:60ch;}
+.section-head .kicker{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:10px;display:block;}
+.section-head h2{font-size:clamp(28px,3.2vw,40px);}
+.section-head p{margin-top:14px;font-size:17px;}
+.label-note{font-family:var(--mono);font-size:12px;color:var(--text-soft);background:var(--bg-alt);border:1px solid var(--border);padding:3px 9px;border-radius:var(--radius);display:inline-block;}
+
+/* ============ NAV ============ */
+header.site-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-row{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--text);}
+.brand span{color:var(--accent);}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+.nav-links a{color:var(--text-soft);font-size:14.5px;font-weight:500;position:relative;padding:6px 0;}
+.nav-links a:hover, .nav-links a.active{color:var(--text);text-decoration:none;}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);}
+.nav-cta{display:flex;gap:10px;align-items:center;}
+.hamburger{display:none;background:none;border:1px solid var(--border);border-radius:var(--radius);padding:8px 10px;color:var(--text);}
+.mobile-panel{display:none;flex-direction:column;gap:2px;padding:8px 0 20px;}
+.mobile-panel a{padding:10px 4px;color:var(--text);border-bottom:1px solid var(--border);font-size:15px;}
+@media (max-width:860px){
+  .nav-links,.nav-cta .btn-text{display:none;}
+  .hamburger{display:inline-flex;}
+  .mobile-panel.open{display:flex;}
+}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:var(--radius);font-weight:600;font-size:14.5px;border:1px solid transparent;transition:transform .15s ease, background .15s ease;}
+.btn:hover{text-decoration:none;transform:translateY(-1px);}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:color-mix(in srgb, var(--accent) 85%, black);}
+.btn-outline{border-color:var(--border);color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-invert{background:var(--text-invert);color:var(--bg-invert);}
+.btn-ghost-invert{border:1px solid color-mix(in srgb, var(--text-invert) 35%, transparent);color:var(--text-invert);}
+
+/* ============ HERO ============ */
+.hero{background:var(--bg-invert);color:var(--text-invert);padding:88px 0 0;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;}
+.hero-eyebrow{font-family:var(--mono);font-size:13px;color:var(--text-invert-soft);margin-bottom:18px;}
+.hero h1{color:var(--text-invert);font-size:clamp(34px,4.6vw,54px);letter-spacing:-.01em;max-width:14ch;}
+.hero p.lead{color:var(--text-invert-soft);font-size:18px;max-width:52ch;margin-top:22px;}
+.hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+.hero-flow{border:1px solid color-mix(in srgb, var(--text-invert) 22%, transparent);border-radius:6px;padding:26px 22px;background:color-mix(in srgb, var(--text-invert) 5%, transparent);}
+.hero-flow .flow-title{font-family:var(--mono);font-size:12px;color:var(--text-invert-soft);margin-bottom:18px;}
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid color-mix(in srgb, var(--text-invert) 20%, transparent);margin-top:64px;}
+.metrics-strip div{padding:26px 22px;border-right:1px solid color-mix(in srgb, var(--text-invert) 20%, transparent);}
+.metrics-strip div:last-child{border-right:none;}
+.metrics-strip .num{font-family:var(--serif);font-size:clamp(24px,2.6vw,32px);font-weight:600;color:var(--accent);}
+.metrics-strip .lbl{font-size:13px;color:var(--text-invert-soft);margin-top:6px;}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;} .metrics-strip{grid-template-columns:repeat(2,1fr);} .metrics-strip div{border-bottom:1px solid color-mix(in srgb, var(--text-invert) 20%, transparent);}}
+
+/* ============ STEP FLOW (reusable diagram language) ============ */
+.stepflow{display:flex;gap:0;overflow-x:auto;padding-bottom:6px;}
+.stepflow .step{flex:1 0 150px;position:relative;padding:14px 16px 14px 0;}
+.stepflow .step:not(:last-child)::after{content:'→';position:absolute;right:-2px;top:16px;color:var(--accent);font-size:15px;}
+.stepflow .step .n{font-family:var(--mono);font-size:11px;color:var(--accent);display:block;margin-bottom:5px;}
+.stepflow .step .t{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.3;}
+.hero-flow .stepflow .step .t{color:var(--text-invert);}
+.hero-flow .stepflow .step .n{color:var(--accent);}
+.stepflow.vertical{flex-direction:column;}
+.stepflow.vertical .step{flex:0 0 auto;padding:0 0 26px 26px;border-left:2px solid var(--border);margin-left:6px;}
+.stepflow.vertical .step:last-child{padding-bottom:2px;border-left-color:transparent;}
+.stepflow.vertical .step::before{content:'';position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--accent);}
+.stepflow.vertical .step:not(:last-child)::after{content:none;}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;}
+.about-pillars{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
+.about-pillars div{padding:16px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:14px;}
+.about-pillars .p-name{font-weight:600;font-family:var(--serif);}
+.about-pillars .p-desc{color:var(--text-soft);font-size:14px;text-align:right;max-width:22ch;}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+
+/* ============ METRICS LEDGER ============ */
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.ledger .cell{background:var(--surface);padding:28px 22px;}
+.ledger .cell .num{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--text);}
+.ledger .cell .num .counted{color:var(--accent);}
+.ledger .cell .lbl{color:var(--text-soft);font-size:13.5px;margin-top:6px;}
+@media (max-width:760px){.ledger{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ CASE STUDY CARDS (home) ============ */
+.cs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.cs-card{background:var(--surface);padding:32px 26px;display:flex;flex-direction:column;gap:14px;transition:background .15s ease;}
+.cs-card:hover{background:var(--bg-alt);}
+.cs-card .cs-industry{font-family:var(--mono);font-size:12px;color:var(--accent);}
+.cs-card h3{font-size:21px;margin-top:2px;}
+.cs-card .cs-flow{font-size:13px;color:var(--text-soft);}
+.cs-card .cs-metric{margin-top:auto;padding-top:14px;border-top:1px solid var(--border);font-size:13.5px;font-family:var(--mono);color:var(--text);}
+.cs-card .cs-open{font-size:14px;font-weight:600;color:var(--accent);}
+@media (max-width:900px){.cs-cards{grid-template-columns:1fr;}}
+
+/* ============ CASE STUDY DETAIL (accordion) ============ */
+.cs-detail{border:1px solid var(--border);margin-bottom:22px;background:var(--surface);}
+.cs-detail-head{width:100%;text-align:left;background:none;border:none;padding:26px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--text);}
+.cs-detail-head:hover{background:var(--bg-alt);}
+.cs-detail-head .cdh-left{display:flex;flex-direction:column;gap:6px;}
+.cs-detail-head .cdh-client{font-family:var(--mono);font-size:12px;color:var(--accent);}
+.cs-detail-head h3{font-size:23px;}
+.cs-detail-head .chev{font-size:20px;color:var(--accent);transition:transform .2s ease;flex-shrink:0;}
+.cs-detail[open] .chev{transform:rotate(45deg);}
+.cs-detail-body{padding:6px 26px 40px;}
+.cs-jump{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 36px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.cs-jump a{font-family:var(--mono);font-size:11.5px;color:var(--text-soft);border:1px solid var(--border);padding:5px 10px;border-radius:12px;}
+.cs-jump a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none;}
+.cs-sub{margin-bottom:44px;scroll-margin-top:90px;}
+.cs-sub .cs-sub-n{font-family:var(--mono);font-size:12px;color:var(--accent);display:block;margin-bottom:8px;}
+.cs-sub h4{font-size:19px;margin-bottom:12px;}
+.cs-sub p{font-size:15px;}
+.sanitized-tag{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--accent2);background:var(--accent2-soft);padding:3px 9px;border-radius:12px;margin-bottom:14px;}
+
+/* Stakeholder radial map */
+.stakeholder-map{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:30px 20px;background:var(--bg-alt);border:1px solid var(--border);}
+.stakeholder-map .node{background:var(--surface);border:1px solid var(--border);padding:12px 16px;font-size:13px;text-align:center;min-width:120px;border-radius:var(--radius);}
+.stakeholder-map .node.center{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;}
+
+/* generic data table */
+table.dtable{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0;}
+table.dtable th{font-family:var(--mono);font-size:11px;text-transform:none;color:var(--text-soft);text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);background:var(--bg-alt);}
+table.dtable td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;}
+table.dtable .status-pass{color:var(--accent);font-weight:600;}
+.table-scroll{overflow-x:auto;position:relative;}
+@media (max-width:760px){
+  .table-scroll{border-bottom:2px solid var(--accent-soft);}
+  .table-scroll::after{content:'Scroll to see more →';display:block;font-family:var(--mono);font-size:11px;color:var(--accent);padding:6px 2px 0;}
+}
+
+/* user stories / AC */
+.story-card{border-left:3px solid var(--accent);background:var(--bg-alt);padding:14px 18px;margin-bottom:12px;font-size:14.5px;}
+.ac-block{border-left:3px solid var(--accent2);background:var(--accent2-soft);padding:14px 18px;margin-bottom:12px;font-size:14px;font-family:var(--mono);line-height:1.7;}
+
+/* before/after */
+.before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin:20px 0;}
+.ba-box{text-align:center;padding:28px 16px;border:1px solid var(--border);}
+.ba-box .ba-lbl{font-family:var(--mono);font-size:12px;color:var(--text-soft);}
+.ba-box .ba-val{font-family:var(--serif);font-size:30px;font-weight:600;margin-top:8px;}
+.ba-arrow{font-size:26px;color:var(--accent);text-align:center;}
+@media (max-width:600px){.before-after{grid-template-columns:1fr;}.ba-arrow{transform:rotate(90deg);}}
+.result-banner{background:var(--accent);color:#fff;padding:18px 22px;text-align:center;font-family:var(--serif);font-size:19px;font-weight:600;margin-top:16px;}
+
+/* ============ MINI PROJECTS ============ */
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.mini-card{background:var(--surface);padding:28px 24px;}
+.mini-card h4{font-size:18px;margin-bottom:10px;}
+.mini-card ul{margin:0 0 16px;padding-left:18px;color:var(--text-soft);font-size:13.5px;}
+.mini-card li{margin-bottom:4px;}
+@media (max-width:900px){.mini-grid{grid-template-columns:1fr;}}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+.skill-group h4{font-family:var(--mono);font-size:12.5px;color:var(--accent);text-transform:none;margin-bottom:14px;font-weight:600;}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{border:1px solid var(--border);background:var(--surface);padding:7px 13px;border-radius:14px;font-size:13px;color:var(--text);}
+@media (max-width:860px){.skills-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.skills-grid{grid-template-columns:1fr;}}
+
+/* ============ TOOLKIT ============ */
+.toolkit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.toolkit-card{background:var(--surface);padding:24px 18px;}
+.toolkit-card h4{font-size:15.5px;margin-bottom:10px;}
+.toolkit-card p{font-size:12.5px;color:var(--text-soft);margin:0;}
+@media (max-width:900px){.toolkit-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ TIMELINE ============ */
+.timeline-company{margin-bottom:10px;}
+.timeline-company h3{font-size:22px;}
+.timeline-company .role{color:var(--text-soft);font-size:14.5px;margin-top:4px;}
+.timeline-company .dates{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin-top:4px;}
+.engagement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0;}
+.engagement{border:1px solid var(--border);padding:18px;}
+.engagement .ind{font-family:var(--mono);font-size:11px;color:var(--accent);}
+.engagement h4{font-size:16px;margin-top:6px;}
+@media (max-width:860px){.engagement-grid{grid-template-columns:1fr;}}
+
+/* ============ CERTS / EDU ============ */
+.list-plain{list-style:none;margin:0;padding:0;border-top:1px solid var(--border);}
+.list-plain li{padding:16px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:14px;}
+.list-plain .item-name{font-weight:600;}
+.list-plain .item-org{color:var(--text-soft);font-size:14px;}
+
+/* ============ RESUME ============ */
+.resume-box{border:1px solid var(--border);padding:40px;background:var(--surface);}
+.resume-box h3{font-size:20px;margin-bottom:6px;}
+.resume-box .r-sub{color:var(--text-soft);font-size:14px;margin-bottom:22px;}
+.resume-box .r-section{margin-bottom:20px;}
+.resume-box .r-section h4{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:8px;}
+.resume-box .r-section p, .resume-box .r-section li{font-size:14px;}
+
+/* ============ CONTACT / FOOTER ============ */
+.contact{background:var(--bg-invert);color:var(--text-invert);}
+.contact h2{color:var(--text-invert);}
+.contact p{color:var(--text-invert-soft);}
+.contact-links{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;}
+.contact-links a{color:var(--text-invert);font-size:15px;border-bottom:1px solid color-mix(in srgb, var(--text-invert) 30%, transparent);padding-bottom:2px;}
+.contact-links a:hover{border-color:var(--text-invert);text-decoration:none;}
+footer.site-foot{padding:28px 0;font-size:13px;color:var(--text-invert-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+/* utility */
+@media print{
+  header.site-nav,.hero,.section:not(#resume-print-area),.contact,footer.site-foot{display:none !important;}
+  body{background:#fff;color:#000;}
+  #resume-print-area{display:block !important;padding:0;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container nav-row">
+    <div class="brand">Shruthi <span>S V</span></div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline btn-text">Let's connect</a>
+      <button class="hamburger" id="hamBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="container mobile-panel" id="mobilePanel">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#case-studies">Case Studies</a>
+    <a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a>
+    <a href="#resume">Resume</a><a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Business Analyst · Requirements · Process Automation · Data Analysis</div>
+        <h1>Business Analyst who turns business problems into production-ready solutions.</h1>
+        <p class="lead">3+ years of experience across Healthcare, Retail, and Supply Chain — specializing in requirements analysis, process automation, stakeholder collaboration, UAT, and SQL-based data analysis.</p>
+        <div class="hero-ctas">
+          <a href="#case-studies" class="btn btn-invert">View case studies</a>
+          <a href="#resume" class="btn btn-ghost-invert">Download resume</a>
+          <a href="https://linkedin.com/in/shruthi-s-v" target="_blank" rel="noopener" class="btn btn-ghost-invert">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-flow">
+        <div class="flow-title">How I work</div>
+        <div class="stepflow vertical" id="heroFlow"></div>
+      </div>
+    </div>
+    <div class="metrics-strip" id="heroMetrics"></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="section-head kicker">About</span>
+      <h2>Working at the intersection of business, process, data, and technology.</h2>
+      <p style="margin-top:22px;font-size:16.5px;">Shruthi's role starts with understanding a business problem, not a system. She runs stakeholder discovery, maps how work actually happens today, and translates that into requirements a technical team can build against with minimal rework — then stays through UAT and production support to make sure what shipped actually solves the problem.</p>
+      <p style="font-size:16.5px;">Her background in software engineering and automation isn't the headline — it's what lets her sit in a room with engineers and finance stakeholders in the same afternoon and be precise with both. That combination shows up across healthcare, retail, and supply-chain engagements, from HIPAA-governed practice-management platforms to SQL-driven revenue reconciliation.</p>
+    </div>
+    <div>
+      <div class="about-pillars">
+        <div><span class="p-name">Business</span><span class="p-desc">Discovery, requirements, stakeholder alignment</span></div>
+        <div><span class="p-name">Process</span><span class="p-desc">As-Is / To-Be mapping, gap analysis</span></div>
+        <div><span class="p-name">Data</span><span class="p-desc">SQL analysis, reconciliation, KPI design</span></div>
+        <div><span class="p-name">Technology</span><span class="p-desc">API/RBAC understanding, automation delivery</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="metrics">
+  <div class="container">
+    <span class="section-head kicker">By the numbers</span>
+    <h2 style="font-size:26px;margin-bottom:32px;">Verified project facts, not projections.</h2>
+    <div class="ledger" id="ledgerGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="case-studies">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Featured work</span>
+      <h2>Three engagements, one consistent lifecycle.</h2>
+      <p>Business problem → stakeholders → discovery → as-is → gaps → requirements → to-be → technical collaboration → UAT → production → outcome.</p>
+    </div>
+    <div class="cs-cards" id="csCards"></div>
+  </div>
+</section>
+
+<section class="section" id="case-study-detail">
+  <div class="container" id="csDetailContainer"></div>
+</section>
+
+<section class="section" id="other-projects">
+  <div class="container">
+    <span class="section-head kicker">Other projects</span>
+    <h2 style="font-size:26px;margin-bottom:36px;">Smaller engagements, same discipline.</h2>
+    <div class="mini-grid" id="miniGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <span class="section-head kicker">Skills</span>
+    <h2 style="font-size:26px;margin-bottom:36px;">Grouped by how they're actually used.</h2>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="toolkit">
+  <div class="container">
+    <span class="section-head kicker">BA Toolkit</span>
+    <h2 style="font-size:26px;margin-bottom:36px;">What I can produce, start to finish.</h2>
+    <div class="toolkit-grid" id="toolkitGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="container">
+    <span class="section-head kicker">Experience</span>
+    <div class="timeline-company">
+      <h3>Vyshanavi Information Technology</h3>
+      <div class="role">Software Engineer / Automation Consultant — Business Analysis &amp; Process Automation</div>
+      <div class="dates">Feb 2023 — Present</div>
+    </div>
+    <div class="engagement-grid" id="engagementGrid"></div>
+    <p style="max-width:70ch;">Alongside client engagements, Shruthi has led internal automation projects spanning expense-reimbursement process review, a 4-stage attendance automation pipeline, and IntelliInvoice, a rule-based invoice data-extraction tool — see <a href="#other-projects">Other Projects</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="certifications">
+  <div class="container">
+    <span class="section-head kicker">Certifications &amp; Education</span>
+    <ul class="list-plain" id="certList"></ul>
+    <div style="height:36px;"></div>
+    <ul class="list-plain" id="eduList"></ul>
+  </div>
+</section>
+
+<section class="section" id="resume">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Resume</span>
+      <h2>The one-page version.</h2>
+      <p>For the full detail, the case studies above are the real resume. This is the quick-scan version.</p>
+    </div>
+    <div class="resume-box" id="resume-print-area">
+      <h3>Shruthi S V</h3>
+      <div class="r-sub">Bengaluru, Karnataka, India · shruthilakshmi008@gmail.com · +91 7305812059 · linkedin.com/in/shruthi-s-v</div>
+      <div class="r-section">
+        <h4>Summary</h4>
+        <p>Business Analyst with 3+ years of experience across Healthcare, Retail, and Supply Chain, delivering 12+ BRD/PDDs, 9 production automation workflows, and a 60–70% reduction in reconciliation runtime through SQL optimization.</p>
+      </div>
+      <div class="r-section">
+        <h4>Experience</h4>
+        <p><strong>Vyshanavi Information Technology</strong> — Software Engineer / Automation Consultant (Business Analysis &amp; Process Automation), Feb 2023–Present. Clients: SolutionReach (Healthcare), Third Wave Coffee (Retail), TVS Motor Company (Supply Chain).</p>
+      </div>
+      <div class="r-section">
+        <h4>Skills</h4>
+        <p>Requirements Elicitation, BRD/PDD Authoring, Stakeholder Management, As-Is/To-Be Analysis, Gap Analysis, UAT Coordination, SQL, PostgreSQL, REST APIs, RBAC, RPA/BPA, Agile/Scrum.</p>
+      </div>
+      <div class="r-section">
+        <h4>Certifications</h4>
+        <p>Agile Explorer (IBM) · Google Analytics (Google) · Enterprise Design Thinking Practitioner (IBM) · Project Management Fundamentals (IBM) · SQL and Relational Databases 101 (Cognitive Class)</p>
+      </div>
+      <div class="r-section">
+        <h4>Education</h4>
+        <p>M.Tech, Software Engineering — BITS Pilani (WILP), 2024–Present (Expected 2027)<br>B.E., Computer Science Engineering — Mepco Schlenk Engineering College, 2019–2023</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <button class="btn btn-primary" onclick="window.print()">Download / Print Resume</button>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container" style="padding:96px 0;">
+    <h2 style="font-size:clamp(28px,3.5vw,40px);">Let's connect</h2>
+    <p style="font-size:17px;margin-top:16px;max-width:56ch;">Open to conversations around Business Analysis, Process Automation, Business Requirements, Data Analysis, and technology-enabled process improvement.</p>
+    <div class="contact-links">
+      <a href="mailto:shruthilakshmi008@gmail.com">shruthilakshmi008@gmail.com</a>
+      <a href="https://linkedin.com/in/shruthi-s-v" target="_blank" rel="noopener">linkedin.com/in/shruthi-s-v</a>
+      <span style="color:var(--text-invert-soft);">Bengaluru, India</span>
+    </div>
+  </div>
+</section>
+<footer class="site-foot contact">
+  <div class="container site-foot">
+    <div>© 2026 Shruthi S V</div>
+    <div>Built &amp; documented as a working BA practice — see the <a href="#other-projects" style="color:var(--text-invert);">automation portfolio</a>.</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const heroFlowSteps = [
+  {t:"Understand the business problem"},
+  {t:"Run discovery with stakeholders"},
+  {t:"Map As-Is, define To-Be"},
+  {t:"Write requirements & user stories"},
+  {t:"Support UAT & production"},
+];
+
+const heroMetrics = [
+  {num:"3+", lbl:"Years experience"},
+  {num:"12+", lbl:"BRD/PDDs authored"},
+  {num:"9", lbl:"Automation workflows"},
+  {num:"60–70%", lbl:"Runtime reduction"},
+];
+
+const ledgerMetrics = [
+  {num:"12+", lbl:"BRD/PDDs authored"},
+  {num:"9", lbl:"Production automation workflows delivered"},
+  {num:"60–70%", lbl:"Reduction in reconciliation runtime"},
+  {num:"10+", lbl:"Healthcare practice-management platforms"},
+  {num:"8", lbl:"Data sources involved in reconciliation"},
+  {num:"9+", lbl:"Stakeholders in supply-chain workshops"},
+  {num:"~250", lbl:"Employees impacted by internal automation"},
+  {num:"5", lbl:"Certifications completed"},
+];
+
+const caseStudies = [
+  {
+    id:"cs-healthcare",
+    client:"SolutionReach", industry:"Healthcare",
+    title:"Healthcare Practice Management Automation",
+    flow:"Requirements → Process Analysis → Automation → UAT → Production",
+    metric:"12 BRD/PDDs · 9 workflows · 10+ platforms",
+    role:"Software Engineer / Automation Consultant — Business Analysis & Process Automation",
+    subs:[
+      {n:"01", id:"hc-context", h:"Business Context", body:`SolutionReach operates across 10+ third-party healthcare Practice Management platforms (including Dentrix, Eyefinity Encompass, Denticon, Eaglesoft, and RevolutionEHR), each handling HIPAA-governed patient and billing data. <span class="sanitized-tag">Sanitized / illustrative portfolio representation</span> — this section describes the general environment, not proprietary implementation detail.`},
+      {n:"02", id:"hc-problem", h:"Business Problem", body:"Each Practice Management platform maintains its own workflow conventions for core actions like ledger writeback, appointment creation, and patient intake. That fragmentation created real opportunities for automation, validation consistency, and operational efficiency across platforms — without a single common workflow to lean on."},
+      {n:"03", id:"hc-role", h:"My BA Role", body:"Requirements elicitation and clarification · BRD/PDD authoring across 12 documents · workflow and data mapping · stakeholder coordination · UAT coordination · technical clarification with the build team · production support and root-cause analysis on live workflows."},
+      {n:"04", id:"hc-stakeholders", h:"Discovery & Stakeholders", body:"Conceptual stakeholder map for this engagement type:", map:["Business Stakeholders","Practice / Operations Users","Business Analyst","Automation / Technical Team","QA / UAT Stakeholders","Production Support"]},
+      {n:"05", id:"hc-asis", h:"As-Is Process", body:"A generalized, sanitized representation of the manual workflow pattern across platforms before automation:", flowSteps:["Practice Mgmt. Platform","Manual / Existing Workflow","Data Validation","Processing","System Update","Verification"]},
+      {n:"06", id:"hc-pain", h:"Pain Points", body:"Manual intervention at multiple steps · repetitive operational work across platforms · platform-specific workflow differences · exception handling gaps · limited production monitoring visibility."},
+      {n:"07", id:"hc-req", h:"Requirements (Sanitized Example)", body:`<span class="sanitized-tag">Representative portfolio example</span> Business: the system shall support ledger writeback across supported platforms without manual re-entry. Functional: the system shall validate mandatory fields before processing an appointment record. Non-functional: production issues shall be logged for same-day root-cause review.`},
+      {n:"08", id:"hc-stories", h:"User Stories", body:"", stories:[
+        "As a practice operations user, I want appointment records validated automatically, so that incomplete records don't reach the platform.",
+        "As a business analyst, I want a consistent BRD structure across platforms, so that requirements stay comparable and traceable.",
+        "As a production support analyst, I want failed workflow runs logged with a reason code, so that I can triage without re-reading raw logs.",
+      ]},
+      {n:"09", id:"hc-ac", h:"Acceptance Criteria", body:"", ac:[
+        "Given a complete appointment record, When it is processed, Then it updates the target platform successfully.",
+        "Given a record missing a mandatory field, When it is processed, Then it is rejected with a specific validation reason.",
+        "Given a duplicate record, When it is submitted, Then the system flags it rather than creating a duplicate entry.",
+        "Given a platform-side exception, When processing fails, Then the failure is logged and routed to production support.",
+      ]},
+      {n:"10", id:"hc-tobe", h:"To-Be Process", body:"", flowSteps:["Source Platform","Automation","Validation","Business Rules","Target Update","Logging","Exception Handling","Confirmation"]},
+      {n:"11", id:"hc-uat", h:"UAT (Sample Matrix)", body:"", uat:[
+        ["Valid ledger entry","Complete, correctly formatted record","Writeback succeeds","Writeback succeeded","PASS"],
+        ["Missing mandatory field","Record missing patient ID","Record rejected with reason","Rejected — missing patient ID","PASS"],
+        ["Duplicate record","Same appointment submitted twice","Second entry flagged, not duplicated","Flagged for review","PASS"],
+        ["Platform exception","Simulated platform timeout","Failure logged, routed to support","Logged, ticket auto-created","PASS"],
+      ]},
+      {n:"12", id:"hc-prod", h:"Production Support", body:"Shruthi owned production support for 12 live automation workflows: daily monitoring, failure detection, log analysis, root-cause analysis, fix, staging validation, UAT, production deployment, and back to monitoring.", flowSteps:["Monitoring","Failure Detection","Log Analysis","Root Cause","Fix","Staging","UAT","Production","Monitoring"]},
+      {n:"13", id:"hc-outcome", h:"Outcome", body:"12 BRD/PDDs authored · 9 of 9 assigned automation workflows delivered · 12 live automation workflows supported in production · experience across 10+ Practice Management platforms."},
+    ]
+  },
+  {
+    id:"cs-retail",
+    client:"Third Wave Coffee", industry:"Retail",
+    title:"Revenue Reconciliation System",
+    flow:"Data Mapping → SQL Analysis → Reconciliation → Dashboard",
+    metric:"60–70% runtime reduction · 8 data sources",
+    role:"Business Analysis / Data Analysis / Process Automation",
+    strongest:true,
+    subs:[
+      {n:"01", id:"rc-problem", h:"Business Problem", body:"Revenue data arrived from 8 separate sources that needed to be reconciled against each other, with useful reporting visibility for the finance and operations teams — not just a raw comparison."},
+      {n:"02", id:"rc-stakeholders", h:"Stakeholders", body:"Conceptual stakeholder map:", map:["Business Users","Finance / Operations","Business Analyst","Technical Team","Database / Data Team"]},
+      {n:"03", id:"rc-datamap", h:"Data Source Mapping", body:"", flowSteps:["Source 1","Source 2","Source 3","… Source 8","PostgreSQL","Reconciliation Logic","Dashboard / Reporting"]},
+      {n:"04", id:"rc-fieldmap", h:"Data Mapping (Sanitized Example)", body:`<span class="sanitized-tag">Representative field names, not production schema</span>`, table:{head:["Source Field","Target Field","Transformation","Business Meaning","Validation Rule"], rows:[
+        ["txn_amt_raw","transaction_amount","Currency normalization","Revenue value of the transaction","Must be numeric, non-negative"],
+        ["loc_code","location_id","Lookup against location table","Store/location identifier","Must exist in location master"],
+        ["comm_pct","commission_rate","Decimal conversion","Commission percentage applied","Between 0 and 1"],
+      ]}},
+      {n:"05", id:"rc-logic", h:"Reconciliation Logic", body:"Cross-source reconciliation conceptually identifies matching records, missing records, amount discrepancies, general data inconsistencies, and commission differences between sources — without exposing the exact production business rules."},
+      {n:"06", id:"rc-sql", h:"SQL / Technical Analysis", body:"Shruthi's contribution was technical analysis in support of business performance, not database administration: PostgreSQL query optimization, indexing strategy, partitioning, materialized views, query review, and data analysis."},
+      {n:"07", id:"rc-dashboard", h:"Dashboard Requirements", body:`<span class="sanitized-tag">Representative portfolio example</span> KPI concepts: total transactions, reconciled transactions, exceptions, difference amount, commission breakdown, line-item breakdown.`},
+      {n:"08", id:"rc-ba", h:"Before / After", body:"", before:"15–30 min", after:"5–10 min", result:"60–70% reduction in reconciliation runtime"},
+      {n:"09", id:"rc-outcome", h:"Outcome", body:"60–70% reduction in reconciliation runtime · reconciliation across 8 data sources · improved line-item and commission visibility · contribution to database design · query review for junior team members."},
+    ]
+  },
+  {
+    id:"cs-supplychain",
+    client:"TVS Motor Company", industry:"Supply Chain",
+    title:"Inter-Plant Purchase Order Lifecycle",
+    flow:"Stakeholder Workshops → As-Is → Gap Analysis → To-Be → BRD",
+    metric:"9+ stakeholders across Dispatch & Procurement",
+    role:"Business Analyst",
+    subs:[
+      {n:"01", id:"sc-problem", h:"Business Problem", body:"The Inter-Plant Purchase Order lifecycle needed to be improved and digitized — moving away from manual part-availability checks toward a defined digital workflow."},
+      {n:"02", id:"sc-discovery", h:"Stakeholder Discovery", body:"Workshops involved 9+ participants across Dispatch, Procurement, business stakeholders, and the technical/development team.", map:["Dispatch","Procurement","Business Stakeholders","Technical / Dev Team"]},
+      {n:"03", id:"sc-workshop", h:"Stakeholder Workshop", body:"", flowSteps:["Stakeholder Interviews","Workshop","Current-State Mapping","Pain Points","Requirements","Prioritization","To-Be Design"]},
+      {n:"04", id:"sc-asis", h:"As-Is Process", body:`<span class="sanitized-tag">Sanitized, illustrative reconstruction</span> A generalized purchase-order lifecycle prior to digitization, reliant on manual part-availability checks between plants.`},
+      {n:"05", id:"sc-gap", h:"Gap Analysis", body:"", table:{head:["Current State","Gap","Business Impact","Requirement"], rows:[
+        ["Manual part-availability checks","No real-time visibility","Delays in dispatch decisions","Digital part-availability lookup"],
+        ["Disconnected plant systems","No shared PO status","Duplicate follow-ups across teams","Centralized PO status tracking"],
+        ["Ad-hoc approvals","Inconsistent approval trail","Audit and accountability gaps","Defined approval workflow with RBAC"],
+      ]}},
+      {n:"06", id:"sc-tobe", h:"To-Be Workflow", body:`<span class="sanitized-tag">Illustrative portfolio reconstruction</span>`, flowSteps:["PO Initiation","Validation","Approval","Procurement Processing","Dispatch Coordination","Status Tracking","Closure"]},
+      {n:"07", id:"sc-req", h:"Requirements", body:"Scope and objectives · functional requirements · business rules · user roles · access requirements · API requirements · exception scenarios — captured across the BRD/PDD for the Inter-Plant PO lifecycle."},
+      {n:"08", id:"sc-api", h:"API & RBAC", body:"Shruthi evaluated API integration requirements and role-based access control needs for secure system access, and led technical clarification sessions with the development team ahead of build. No endpoint names, payloads, credentials, or architecture are disclosed here."},
+      {n:"09", id:"sc-brd", h:"BRD/PDD Structure", body:"", flowSteps:["Business Context","Objectives","Scope","Stakeholders","Current State","Future State","Functional Reqs","Business Rules","Process Flows","Integration Reqs","Access Reqs","Acceptance Criteria"]},
+      {n:"10", id:"sc-handoff", h:"Development Handoff", body:"", flowSteps:["Business Requirement","Functional Requirement","User Story","Acceptance Criteria","Technical Clarification","Development","UAT"]},
+      {n:"11", id:"sc-outcome", h:"Outcome", body:"Stakeholder workshop with 9+ participants · As-Is process mapping · To-Be workflow definition · BRD/PDD authored · API integration requirements evaluated · RBAC requirements evaluated · technical clarification sessions conducted with developers."},
+    ]
+  },
+];
+
+const miniProjects = [
+  {h:"Expense Reimbursement Automation", facts:["~250 employees","Process review & root-cause analysis","Testing support","Staging & production deployment"], flow:["Problem","Analysis","Automation","Testing","Deployment"]},
+  {h:"Attendance Automation", facts:["~250 employees, 2 branches","4-stage automation pipeline","API sync with HRMS","Automated absence / missed-punch reporting"], flow:["Capture","Cleanse","Sync to HRMS","Report"]},
+  {h:"IntelliInvoice", facts:["Rule-based invoice data-extraction tool","Built in Angular","Dynamic field highlighting","Demoed to company leadership"], flow:["Upload","Extract","Highlight","Review"]},
+];
+
+const skills = [
+  {h:"Business Analysis", items:["Requirements Gathering","Requirements Elicitation","BRD Authoring","PDD Authoring","Gap Analysis","As-Is / To-Be Mapping","Stakeholder Management","Stakeholder Workshops","UAT Coordination","Root Cause Analysis","Wireframing","Data Mapping"]},
+  {h:"Technical", items:["SQL","PostgreSQL","REST APIs","API Integration","OAuth","RBAC","Data Analysis","Angular","C#",".NET"]},
+  {h:"Automation", items:["RPA","BPA","Process Automation","Workflow Automation","IntelliBuddies"]},
+  {h:"Methodology", items:["Agile","Scrum","SDLC","Business Process Improvement","Production Support"]},
+  {h:"Tools", items:["Jira","Draw.io","Balsamiq","GitLab","Postman"]},
+  {h:"Domains", items:["Healthcare","Retail","Supply Chain"]},
+];
+
+const toolkit = [
+  {h:"Requirements", d:"BRD · PDD · Functional Requirements · User Stories"},
+  {h:"Process Analysis", d:"As-Is · To-Be · Gap Analysis · Process Mapping"},
+  {h:"Delivery", d:"UAT · Acceptance Criteria · Technical Clarification · Production Support"},
+  {h:"Data", d:"SQL · Data Mapping · Reconciliation · KPI Analysis"},
+  {h:"Design", d:"Wireframes · Workflow Design · Business Rules"},
+];
+
+const engagements = [
+  {ind:"Healthcare", name:"SolutionReach"},
+  {ind:"Retail", name:"Third Wave Coffee"},
+  {ind:"Supply Chain", name:"TVS Motor Company"},
+];
+
+const certifications = [
+  {name:"Agile Explorer", org:"IBM"},
+  {name:"Google Analytics", org:"Google"},
+  {name:"Enterprise Design Thinking Practitioner", org:"IBM"},
+  {name:"Project Management Fundamentals", org:"IBM"},
+  {name:"SQL and Relational Databases 101", org:"Cognitive Class"},
+];
+
+const education = [
+  {name:"M.Tech, Software Engineering", org:"BITS Pilani (WILP) · 2024–Present (Expected 2027)"},
+  {name:"B.E., Computer Science Engineering", org:"Mepco Schlenk Engineering College · 2019–2023"},
+];
+
+/* ============================================================
+   RENDER HELPERS
+   ============================================================ */
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+
+function renderStepflow(container, steps, vertical){
+  const wrap = el('div', 'stepflow' + (vertical ? ' vertical' : ''));
+  steps.forEach((s,i)=>{
+    const label = typeof s === 'string' ? s : s.t;
+    const step = el('div','step', `<span class="n">${vertical ? String(i+1).padStart(2,'0') : 'STEP ' + (i+1)}</span><span class="t">${label}</span>`);
+    wrap.appendChild(step);
+  });
+  container.appendChild(wrap);
+}
+
+// Hero flow
+renderStepflow(document.getElementById('heroFlow'), heroFlowSteps.map(s=>s.t), true);
+
+// Hero metrics
+const heroMetricsEl = document.getElementById('heroMetrics');
+heroMetrics.forEach(m=>{
+  heroMetricsEl.appendChild(el('div', null, `<div class="num">${m.num}</div><div class="lbl">${m.lbl}</div>`));
+});
+
+// Ledger
+const ledgerEl = document.getElementById('ledgerGrid');
+ledgerMetrics.forEach(m=>{
+  ledgerEl.appendChild(el('div','cell', `<div class="num"><span class="counted">${m.num}</span></div><div class="lbl">${m.lbl}</div>`));
+});
+
+// Home case study cards
+const csCardsEl = document.getElementById('csCards');
+caseStudies.forEach(cs=>{
+  const card = el('a','cs-card');
+  card.href = '#' + cs.id;
+  card.innerHTML = `<span class="cs-industry">${cs.industry}</span><h3>${cs.title}</h3><div class="cs-flow">${cs.flow}</div><div class="cs-metric">${cs.metric}</div><div class="cs-open">View case study →</div>`;
+  csCardsEl.appendChild(card);
+});
+
+// Case study detail accordions
+const csDetailContainer = document.getElementById('csDetailContainer');
+caseStudies.forEach((cs,idx)=>{
+  const details = el('details','cs-detail');
+  details.id = cs.id;
+  if(idx===0) details.open = true;
+  const summary = el('summary','cs-detail-head');
+  summary.innerHTML = `<div class="cdh-left"><span class="cdh-client">${cs.client} · ${cs.industry}</span><h3>${cs.title}</h3></div><span class="chev">+</span>`;
+  details.appendChild(summary);
+
+  const body = el('div','cs-detail-body');
+  const roleP = el('p', null, `<strong style="color:var(--text);">Role:</strong> ${cs.role}`);
+  body.appendChild(roleP);
+
+  const jump = el('div','cs-jump');
+  cs.subs.forEach(s=>{ const a = el('a', null, s.h); a.href = '#' + s.id; jump.appendChild(a); });
+  body.appendChild(jump);
+
+  cs.subs.forEach(s=>{
+    const sub = el('div','cs-sub');
+    sub.id = s.id;
+    let inner = `<span class="cs-sub-n">${s.n} — ${cs.industry}</span><h4>${s.h}</h4>`;
+    if(s.body) inner += `<p>${s.body}</p>`;
+    sub.innerHTML = inner;
+
+    if(s.map){
+      const map = el('div','stakeholder-map');
+      s.map.forEach((m)=>{
+        const node = el('div','node');
+        node.textContent = m;
+        map.appendChild(node);
+      });
+      sub.appendChild(map);
+    }
+    if(s.flowSteps){ renderStepflow(sub, s.flowSteps, false); }
+    if(s.stories){
+      s.stories.forEach(story=> sub.appendChild(el('div','story-card', story)) );
+    }
+    if(s.ac){
+      s.ac.forEach(a=> sub.appendChild(el('div','ac-block', a)) );
+    }
+    if(s.table){
+      const scroll = el('div','table-scroll');
+      let t = '<table class="dtable"><thead><tr>' + s.table.head.map(h=>`<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+      s.table.rows.forEach(r=> t += '<tr>' + r.map(c=>`<td>${c}</td>`).join('') + '</tr>');
+      t += '</tbody></table>';
+      scroll.innerHTML = t;
+      sub.appendChild(scroll);
+    }
+    if(s.uat){
+      const scroll = el('div','table-scroll');
+      let t = '<table class="dtable"><thead><tr><th>Scenario</th><th>Input</th><th>Expected Result</th><th>Actual Result</th><th>Status</th></tr></thead><tbody>';
+      s.uat.forEach(r=> t += `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td class="status-pass">${r[4]}</td></tr>`);
+      t += '</tbody></table>';
+      scroll.innerHTML = t;
+      sub.appendChild(scroll);
+      sub.appendChild(el('p', null, '<span class="sanitized-tag">Sample UAT matrix — fictional/sample values</span>'));
+    }
+    if(s.before){
+      sub.appendChild(el('div','before-after', `<div class="ba-box"><div class="ba-lbl">Before</div><div class="ba-val">${s.before}</div></div><div class="ba-arrow">→</div><div class="ba-box"><div class="ba-lbl">After</div><div class="ba-val">${s.after}</div></div>`));
+      sub.appendChild(el('div','result-banner', s.result));
+    }
+    body.appendChild(sub);
+  });
+  details.appendChild(body);
+  csDetailContainer.appendChild(details);
+});
+
+// Mini projects
+const miniGridEl = document.getElementById('miniGrid');
+miniProjects.forEach(mp=>{
+  const card = el('div','mini-card');
+  card.innerHTML = `<h4>${mp.h}</h4><ul>${mp.facts.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+  const flowDiv = el('div');
+  renderStepflow(flowDiv, mp.flow, false);
+  card.appendChild(flowDiv);
+  miniGridEl.appendChild(card);
+});
+
+// Skills
+const skillsGridEl = document.getElementById('skillsGrid');
+skills.forEach(g=>{
+  const group = el('div','skill-group');
+  group.innerHTML = `<h4>${g.h}</h4><div class="tag-row">${g.items.map(i=>`<span class="tag">${i}</span>`).join('')}</div>`;
+  skillsGridEl.appendChild(group);
+});
+
+// Toolkit
+const toolkitGridEl = document.getElementById('toolkitGrid');
+toolkit.forEach(t=>{
+  toolkitGridEl.appendChild(el('div','toolkit-card', `<h4>${t.h}</h4><p>${t.d}</p>`));
+});
+
+// Engagements
+const engGridEl = document.getElementById('engagementGrid');
+engagements.forEach(e=>{
+  engGridEl.appendChild(el('div','engagement', `<div class="ind">${e.ind}</div><h4>${e.name}</h4>`));
+});
+
+// Certifications / Education
+const certListEl = document.getElementById('certList');
+certifications.forEach(c=>{
+  certListEl.appendChild(el('li', null, `<span class="item-name">${c.name}</span><span class="item-org">${c.org}</span>`));
+});
+const eduListEl = document.getElementById('eduList');
+education.forEach(e=>{
+  eduListEl.appendChild(el('li', null, `<span class="item-name">${e.name}</span><span class="item-org">${e.org}</span>`));
+});
+
+/* ============================================================
+   INTERACTIONS
+   ============================================================ */
+// Mobile menu
+const hamBtn = document.getElementById('hamBtn');
+const mobilePanel = document.getElementById('mobilePanel');
+hamBtn.addEventListener('click', ()=>{
+  const open = mobilePanel.classList.toggle('open');
+  hamBtn.setAttribute('aria-expanded', open);
+  hamBtn.textContent = open ? '✕' : '☰';
+});
+mobilePanel.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+  mobilePanel.classList.remove('open'); hamBtn.textContent='☰'; hamBtn.setAttribute('aria-expanded','false');
+}));
+
+// Active nav link on scroll
+const sectionIds = ['home','about','case-studies','skills','experience','certifications','resume','contact'];
+const sections = sectionIds.map(id=>document.getElementById(id)).filter(Boolean);
+const navAnchors = document.querySelectorAll('#navLinks a');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navAnchors.forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
